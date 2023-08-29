@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task</title>
+    <link rel="stylesheet" href="{%static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>This is the task page</h1>
+    </header>
+    <main>
+        <div id="content">
+            <label for="userInput">Enter Your Text:</label>
+            <input type="text" id="userInput" placeholder="Type something...">
+            <button id="submitButton">Submit</button>
+            <p id="displayText"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;Vishnu Gosala</p>
+    </footer>
+    <script>
+        
+        function handleUserInput() {
+            const userInput = document.getElementById("userInput").value;
+            const displayText = document.getElementById("displayText");
+
+            if (userInput) {
+                displayText.textContent = `You entered: ${userInput}`;
+            } else {
+                displayText.textContent = "Please enter some text.";
+            }
+        }
+
+        
+        const submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", handleUserInput);
+    </script>
+</body>
+</html>
